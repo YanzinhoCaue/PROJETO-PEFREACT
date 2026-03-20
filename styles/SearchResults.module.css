@@ -1,0 +1,41 @@
+.wrapper {
+  margin-top: 14px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.header strong {
+  color: var(--text-main);
+}
+
+.header span {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.listArea {
+  border: 1px solid rgba(145, 225, 255, 0.24);
+  border-radius: 16px;
+  background: rgba(3, 17, 26, 0.6);
+  padding: 10px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.row {
+  padding-bottom: 10px;
+}
+
+@media (max-width: 680px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+}

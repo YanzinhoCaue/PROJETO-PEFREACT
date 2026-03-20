@@ -1,5 +1,5 @@
-import { List, ListRowRenderer } from 'react-virtualized';
 import { ProductItem } from './ProductItem';
+import styles from '@/styles/SearchResults.module.css';
 
 interface SearchResultsProps {
   totalPrice: number;
@@ -17,28 +17,31 @@ export function SearchResults({
   totalPrice,
   onAddToWishlist,
 }: SearchResultsProps) {
-  const rowRenderer: ListRowRenderer =  ({ index, key, style }) => {
-      return (
-        <div key={key} style={style}>
-          <ProductItem
-            product={results[index]}
-            onAddToWishlist={onAddToWishlist}
-          />
-        </div>
-      );
-  }
+  const currencyFormatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
 
   return (
-    <div>
-      <h2>{totalPrice}</h2>
-      <List 
-        height={300}
-        rowHeight={30}
-        width={900}
-        overscanRowCount={5}
-        rowCount={results.length}
-        rowRenderer={rowRenderer}
-      />
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <strong>{results.length} resultados</strong>
+        <span>Total: {currencyFormatter.format(totalPrice)}</span>
+      </div>
+
+      <div className={styles.listArea}>
+        {results.map((product, index) => {
+          return (
+            <div key={product.id} className={styles.row}>
+              <ProductItem
+                index={index}
+                product={product}
+                onAddToWishlist={onAddToWishlist}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

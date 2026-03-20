@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 14, 21, 0.72);
+  display: grid;
+  place-items: center;
+  z-index: 30;
+  animation: fadeIn 220ms ease;
+}
+
+.modal {
+  width: min(92vw, 360px);
+  border-radius: 16px;
+  border: 1px solid rgba(145, 225, 255, 0.34);
+  background: linear-gradient(140deg, rgba(4, 26, 38, 0.98), rgba(3, 18, 28, 0.95));
+  padding: 18px;
+  box-shadow: 0 16px 30px rgba(2, 10, 16, 0.5);
+}
+
+.modal p {
+  margin: 0;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.confirm,
+.cancel {
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 9px 14px;
+  font-weight: 700;
+}
+
+.confirm {
+  background: linear-gradient(120deg, #49d8ac, #63f1dd);
+  color: #002518;
+}
+
+.cancel {
+  background: rgba(113, 154, 170, 0.3);
+  color: var(--text-main);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

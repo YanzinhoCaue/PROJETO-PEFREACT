@@ -1,0 +1,58 @@
+:root {
+  --bg-deep: #051018;
+  --bg-soft: #0a1f2e;
+  --surface: rgba(8, 23, 33, 0.72);
+  --surface-border: rgba(145, 225, 255, 0.22);
+  --text-main: #e5f8ff;
+  --text-muted: #8fb5c6;
+  --accent: #47d7ac;
+  --accent-strong: #39c899;
+  --danger: #ff8b8b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Sora', 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(79, 227, 245, 0.16), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(71, 215, 172, 0.14), transparent 35%),
+    linear-gradient(135deg, var(--bg-deep), var(--bg-soft) 55%, #051621);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(87, 176, 210, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 176, 210, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridDrift 14s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(50px, 35px, 0);
+  }
+}
+
+button,
+input {
+  font: inherit;
+}
